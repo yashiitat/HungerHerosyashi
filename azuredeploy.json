@@ -1,0 +1,43 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "name": {
+      "type": "string",
+      "metadata": {
+        "description": "Storage Template."
+      },
+      "minLength": 2,
+      "maxLength": 24
+    },
+    "location": {
+      "type": "string"
+    }
+  },
+  "variables": {
+    "apiVersion": "2019-04-01"
+  },
+  "resources": [
+    {
+      "apiVersion": "[variables('apiVersion')]",
+      "name": "[parameters('name')]",
+      "location": "[resourceGroup().location]",
+      "type": "Microsoft.Web/sites",
+      "tags": {
+        "displayName": "dev-H1"
+      },
+      "sku": {
+        "name": "F1",
+        "capacity": 1
+      },
+      "properties": {
+        "name": "appservice",
+        "serverfarmId": "[resourceId('Microsoft.Web/serverfarms','appservice')]"
+      },
+      "dependsOn": [
+        "[resourceId('Microsoft.Web/serverfarms','appservice')]"
+      ]
+    }
+  ],
+  "outputs": {}
+}
