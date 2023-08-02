@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <header>
+        <link rel="stylesheet" href="style.css">
+        <script src="index.js"></script>
+        <title>
+            Sign Up | HELPfind
+        </title>
+        
+    </header>
+    <img src="logo.png" alt="Logo" class="logo" link="donationform.html">
+    <body>
+        <table align="center">
+            <tr>
+                <td>
+                    <h1>Food Donation Form</h1>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <form name="customerForm"  id="customerFormId" method="post" action="https://script.google.com/macros/s/AKfycbwM_o9hNS2CFZQ_6mMYqMhpbTpUX3q9sYiK73YcN3_i6O45KLYcM6MjDgu6V4b8Sb1DGQ/exec">
+                        <label for="org">First Name:</label><br>
+                        <input type="text" id="firstN" name="firstN" value="First Name"><br><br>
+                        <label for="Last Name">Last Name:</label><br>
+                        <input type="text" id="lastN" name="lastN" value="Last Name"><br><br>
+                        <label for="email">Email:</label><br>
+                        <input type="text" id="email" name="email" value="@..."><br><br>
+                        <label for="phoneNum">Phone Number:</label><br>
+                        <input type="text" id="phoneNum" name="phoneNum" value="#"><br><br>
+                        <label for="transportationlabel">Donation Transportation:</label><br>
+                        <div class="radio-container">
+                            <input type="radio" id="dropoff" name="donationTransportation" value="Dropoff">
+                            <label for="dropoff">Dropoff</label>
+                        </div>
+                        <div class="radio-container">
+                            <input type="radio" id="pickup" name="donationTransportation" value="Pickup">
+                            <label for="pickup">Pickup</label>
+                        </div>
+                        <label for="address">Address:</label><br>
+                        <input type="text" id="address" name="address" value="Only for 'Pick up'"><br><br>
+                        <button type="submit" value="Submit" onclick="SaveUserInfo()">Submit</button>
+                      </form>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>

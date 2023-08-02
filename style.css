@@ -1,0 +1,137 @@
+/* Reset some default styles for better consistency */
+body, h1, form, label, input, button {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Style the header area */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.logo {
+  bottom: 400px;
+  position: absolute;
+  left: 10px;
+  width: 400px;
+  height: auto;
+  bottom: 650px;
+}
+
+/* Style the h1 element inside the table */
+h1 {
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #9b8989;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  padding-top: 20px;
+}
+
+/* Style the body element for background gradient */
+body {
+  background-image: linear-gradient(to bottom right, #b5d3ff, #ffb5b5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Style the table container */
+.table-container {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 8px;
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+/* Style the form labels */
+label {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+/* Style the input fields */
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+/* Style the radio button container */
+/* ... previous CSS code ... */
+
+/* Style the radio button container */
+.radio-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Style the custom radio button */
+.radio-container input[type="radio"] {
+  margin-right: 10px;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #007bff;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Style the custom radio button when selected */
+.radio-container input[type="radio"]:checked {
+  background-color: #007bff;
+}
+
+/* Style the custom radio button label */
+.radio-container label {
+  font-size: 16px;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Style the submit button */
+button[type="submit"] {
+  background-color: #ff4141;
+  color: #fff;
+  padding: 14px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+}
+
+/* Change button background color on hover */
+button[type="submit"]:hover {
+  background-color: #ff5d5d;
+}
+
+/* Center the table in the page */
+table {
+  margin: 0 auto;
+}
+
+/* Center the table in small screens */
+@media screen and (max-width: 600px) {
+  table {
+    width: 100%;
+  }
+}
