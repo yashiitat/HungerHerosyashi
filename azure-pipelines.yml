@@ -1,0 +1,18 @@
+trigger:
+  branches:
+    include:
+      - dev  # Replace 'main' with your preferred branch name
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+steps:
+- task: AzureResourceManagerTemplateDeployment@3
+  inputs:
+    deploymentScope: 'Resource Group'  # Change to 'Subscription' if needed
+    azureResourceManagerConnection: ''  # Replace with your Azure service connection name
+    subscriptionId: 'Azure subscription 1'  # Replace with your Azure subscription ID
+    resourceGroupName: 'dev-H1'  # Replace with the name of your Azure Resource Group
+    location: 'East US'  # Replace with your desired Azure region
+    csmFile: 'dev/azuredeploy.json'  # Replace with the path to your ARM template file within the repository
+    deploymentMode: 'Incremental'  # Change to 'Complete' if needed
