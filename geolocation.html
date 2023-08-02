@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <body>
+
+        <p>Click the button to get your coordinates.</p>
+
+        <button onclick="getLocation()">Try It</button>
+
+        <p id="demo"></p>
+
+        <div id="map" style="height: 400px;"></div>
+
+        <script>
+            var x = document.getElementById("demo");
+            let map;
+
+            function getLocation() {
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition, showError);
+                } else { 
+                    x.innerHTML = "Geolocation is not supported by this browser.";
+                }
+            }
+
+            function showPosition(position) {
+                x.innerHTML = "Latitude: " + position.coords.latitude + 
+                "<br>Longitude: " + position.coords.longitude;
+
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                // The location of Issaquah Food Bank
+                const issaquahFoodBankPosition = { lat: 47.52883095769209, lng: -122.03493103299726 };
+
+                // Initialize the map centered on the user's current location
+                map = new google.maps.Map(document.getElementById("map"), {
+                    zoom: 15,
+                    center: { lat: latitude, lng: longitude },
+                    mapId: "DEMO_MAP_ID",
+                });
+
+            // Add a marker for the Issaquah Food Bank
+                const marker = new google.maps.Marker({
+                    position: issaquahFoodBankPosition,
+                    map: map,
+                    title: "Issaquah Food and Clothing Bank",
+                });
+            }
+
+            function showError(error) {
+                switch(error.code) {
+                    case error.PERMISSION_DENIED:
+                    x.innerHTML = "User denied the request for Geolocation."
+                    break;
+                    case error.POSITION_UNAVAILABLE:
+                    x.innerHTML = "Location information is unavailable."
+                    break;
+                    case error.TIMEOUT:
+                    x.innerHTML = "The request to get user location timed out."
+                    break;
+                    case error.UNKNOWN_ERROR:
+                    x.innerHTML = "An unknown error occurred."
+                    break;
+                }
+            }
+            var locations = [
+                    ['Renewal Food Bank<br>\
+                    15022 NE Bel Red Rd, Bellevue, WA 98007<br>\
+                     <a href="https://goo.gl/maps/eRzeDQ4sUFFZgpU79">Get Directions</a>', 47.62785564261917, -122.13924865582416],
+                ['Hopelink<br>\
+                14812 Main St, Bellevue, WA 98007<br>\
+            <a href="https://goo.gl/maps/TALb1ufn4kEBW2Av8">Get Directions</a>', 47.61176874140901, -122.14143177932723],
+                ['The Little Free Pantries<br>\
+                1605 151st Ave NE, Bellevue, WA 98007<br>\
+                <a href="https://goo.gl/maps/e8u7TwzYHewjdMww9">Get Directions</a>', 47.62622117632403, -122.13840834462823],
+                ['Feed Washington<br>\
+                8435 161st Avenue Northeast, Redmond, WA 98052<br>\
+                <a href="https://goo.gl/maps/6N5ytGksFmFe62Ei8">Get Directions</a>', 47.68005642981843, -122.1259615059909],
+  ];
+        </script>
+
+<!-- Load the Google Maps JavaScript API with the "places" library -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSbkWeHjJ2vC2lF3U_cYXkkAedy5E6Zp4&libraries=places&callback=initMap" async defer></script>
+        
+</body>
+</html>
